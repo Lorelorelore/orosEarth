@@ -349,10 +349,10 @@ nav a::before {
   overflow: hidden;
 }
 #image-slider ul li:nth-child(1) {
-  background-image: url(../images/fullhomepage1.jpg);
+  background-image: url('/static/images/fullhomepage1.jpg');
 }
 #image-slider ul li:nth-child(2) {
-  background-image: url(../images/fullhomepage2.jpg);
+  background-image: url('/static/images/fullhomepage2.jpg');
 }
 
 #image-slider ul li.active-img{
