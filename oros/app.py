@@ -39,10 +39,10 @@ def reply(email):
 def reread(email):
   cur = mysql.connection.cursor()
   cur.execute("SELECT * FROM messages where email = %s order by creation_date desc" , [email])
-  coversation = cur.fetchall()
+  conversation = cur.fetchall()
   cur.close()
 
-  return render_template('read-mail.html', conversation = coversation)
+  return render_template('read-mail.html', conversation = conversation)
 
 @app.route('/mailing')
 def mailing():
