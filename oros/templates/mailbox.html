@@ -316,15 +316,13 @@
                   <tbody>
                   {%for row in inbox%}
                   <tr>
-                    <td>
-                      <div class="icheck-primary">
-                        <input type="checkbox" value="">
-                        <label for="check1"></label>
-                      </div>
-                    </td>
-                    <td class="mailbox-star"><a href="/read/{{row['email']}}"><i class="fas fa-star text-warning"></i></a></td>
+                    {%if row['isRead'] == 0%}
+                    <td class="mailbox-star"> <i class="mb-2 bg-danger text-white">New</i></td>
+                    {%else%}
+                    <td class="mailbox-star"><a> <i class="mb-2">Read</i></a></td>
+                    {%endif%}
                     <td class="mailbox-name"><a href="/read/{{row['email']}}">{{row['email']}}</a></td>
-                    <td class="mailbox-subject"><b>{{row['subject']}}
+                    <td class="mailbox-subject"><b>Subject: {{row['subject']}}
                     </td>
                     <td class="mailbox-attachment"></td>
                     <td class="mailbox-date"> {{ row['creation_date'] }}</td>
