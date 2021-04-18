@@ -223,7 +223,7 @@
         <div class="slide" id="4">
             <div class="content fourth-content">
                 <div class="container-fluid">
-                    <form id="contact" action="" method="post">
+                    <form id="contact" action="/contactSend" method="post">
                         <div class="row">
                           <div class="col-md-12">
                             <h2>Still have questions?<br>Leave us a message.</h2>
@@ -236,6 +236,11 @@
                           <div class="col-md-6">
                             <fieldset>
                               <input name="email" type="text" class="form-control" id="email" placeholder="Your email..." required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required=""></input>
                             </fieldset>
                           </div>
                           <div class="col-md-12">
@@ -267,6 +272,8 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+
+            attachments = []; 
 
             // navigation click actions 
             $('.scroll-link').on('click', function(event){
@@ -301,6 +308,19 @@
                 log: function() { }
             };
         }
+
+        function addAttachment(filename){
+          
+        }
+
+        $("#contact").submit(function(e) {
+          e.preventDefault(); // avoid to execute the actual submit of the form.
+
+          var form = $(this);
+          var url = form.attr('action');
+
+          console.log("Pass");
+        });
     </script>
 
   </body>

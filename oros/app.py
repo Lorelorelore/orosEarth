@@ -2,6 +2,7 @@ from flask import Flask, render_template, request,redirect, url_for
 from flask_mysqldb import MySQL
 from datetime import datetime, time
 from flask_mail import Mail, Message
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -76,7 +77,6 @@ def sendEmail():
     subject = request.form['subject']
     body = request.form['messageBody']
 
-    print(receiver, subject, body)
     msg = Message(subject , sender= "fdf7ed80a4-de2229@inbox.mailtrap.io", recipients  = ['fdf7ed80a4-de2229@inbox.mailtrap.io'])
     msg.html = body
     mail.send(msg)
@@ -84,6 +84,48 @@ def sendEmail():
 
   else:
     return redirect(url_for('inbox'))
+
+@app.route('/contactSend', methods=['GET', 'POST'])
+def contactSend():
+  if request.method == 'POST':
+    sender = request.form['name']
+    email = request.form['email']
+    subject = request.form['subject']
+    body = request.form['message']
+    files = request.form['files']
+
+    now = datetime.now()
+    current_time = now.strftime('%Y-%m-%d %H:%M:%S')
+
+    #msg = Message(subject , sender= "fdf7ed80a4-de2229@inbox.mailtrap.io", recipients  = ['fdf7ed80a4-de2229@inbox.mailtrap.io'])
+    #msg.html = body
+    #mail.send(msg)
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT email FROM conversation where email = %s limit 1" , [email])
+    conversation = cur.fetchall()
+    cur.close()
+
+    if conversation.length != 0 or conversation.lenth != None:
+      cur =  mysql.connection.cursor()
+      cur.execute("UPDATE conversation SET isRead=0, lastUpdate = %s  WHERE email=%s", [0, current_time])
+      mysql.connection.commit()
+      cur.close()
+    else:
+      cur = mysql.connection.cursor()
+      cur.execute("INSERT INTO conversation (name, email, isRead, lastUpdate) VALUES (%s,%s,%s,%s)" , [sender, email, 0, current_time])
+      mysql.connection.commit()
+      cur.close()
+    
+    cur = mysql.connection.cursor()
+    cur.execute("INSERT INTO messages (email, subject, message, files, creation_date) VALUES (%s,%s,%s,%s, %s)" , [email, subject, body, files, current_time])
+    mysql.connection.commit()
+    cur.close()
+
+
+    return redirect(url_for('index'))
+
+  else:
+    return redirect(url_for('index'))
 
 @app.route('/mailing')
 def mailing():
