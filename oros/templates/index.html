@@ -259,26 +259,6 @@
                           </div>
                           <div class="col-md-12">
                             <fieldset>
-                              <table class="table">
-                              <tr>
-                                <th class="text-white"> Attachment </th>
-                                <th class="text-white"> Action </th>
-                              </tr>
-                              <tr>
-                                <td class="text-white"> thefile.txt </td>
-                                <td> <a class="btn btn-danger" onclick="tester()">Delete</a> </td>
-                              </tr>
-                              </table>
-                            </fieldset>
-                          <div>
-                          <div class="col-md-12">
-                            <fieldset>
-                              <button type="button" class="btn btn-secondary" onclick = "openFIleInput()">Add Attachment</button>
-                              <input type="file" id= "fileOpener" style = "display:none">
-                            </fieldset>
-                          </div>
-                          <div class="col-md-12">
-                            <fieldset>
                               <button type="submit" id="form-submit" class="button">Send Now</button>
                             </fieldset>
                           </div>
@@ -305,22 +285,22 @@
 
       attachments = []; 
 
-            // navigation click actions 
-            $('.scroll-link').on('click', function(event){
-                event.preventDefault();
-                var sectionID = $(this).attr("data-id");
-                scrollToID('#' + sectionID, 750);
-            });
-            // scroll to top action
-            $('.scroll-top').on('click', function(event) {
-                event.preventDefault();
-                $('html, body').animate({scrollTop:0}, 'slow');         
-            });
-            // mobile nav toggle
-            $('#nav-toggle').on('click', function (event) {
-                event.preventDefault();
-                $('#main-nav').toggleClass("open");
-            });
+          // navigation click actions 
+          $('.scroll-link').on('click', function(event){
+              event.preventDefault();
+              var sectionID = $(this).attr("data-id");
+              scrollToID('#' + sectionID, 750);
+          });
+          // scroll to top action
+          $('.scroll-top').on('click', function(event) {
+              event.preventDefault();
+              $('html, body').animate({scrollTop:0}, 'slow');         
+          });
+          // mobile nav toggle
+          $('#nav-toggle').on('click', function (event) {
+              event.preventDefault();
+              $('#main-nav').toggleClass("open");
+          });
         });
         // scroll function
         function scrollToID(id, speed){

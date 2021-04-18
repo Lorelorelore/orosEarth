@@ -4,6 +4,7 @@ from datetime import datetime, time
 from flask_mail import Mail, Message
 from datetime import datetime
 
+
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'localhost'
@@ -19,6 +20,10 @@ app.config['MAIL_USERNAME'] = '99b318c7eb3871'
 app.config['MAIL_PASSWORD'] = 'c83f0cca8003fa'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
+
+app.config['MAX_CONTENT_LENGTH'] = 15 * 1024 * 1024
+app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.pdf']
+app.config['UPLOAD_PATH'] = 'uploads'
 
 mysql = MySQL(app)
 mail = Mail(app)
@@ -92,14 +97,10 @@ def contactSend():
     email = request.form['email']
     subject = request.form['subject']
     body = request.form['message']
-    files = request.form['files']
 
     now = datetime.now()
     current_time = now.strftime('%Y-%m-%d %H:%M:%S')
 
-    #msg = Message(subject , sender= "fdf7ed80a4-de2229@inbox.mailtrap.io", recipients  = ['fdf7ed80a4-de2229@inbox.mailtrap.io'])
-    #msg.html = body
-    #mail.send(msg)
     cur = mysql.connection.cursor()
     cur.execute("SELECT email FROM conversation where email = %s limit 1" , [email])
     conversation = cur.fetchall()
@@ -117,10 +118,9 @@ def contactSend():
       cur.close()
     
     cur = mysql.connection.cursor()
-    cur.execute("INSERT INTO messages (email, subject, message, files, creation_date) VALUES (%s,%s,%s,%s, %s)" , [email, subject, body, files, current_time])
+    cur.execute("INSERT INTO messages (email, subject, message, creation_date) VALUES (%s,%s,%s,%s, %s)" , [email, subject, body, current_time])
     mysql.connection.commit()
     cur.close()
-
 
     return redirect(url_for('index'))
 
