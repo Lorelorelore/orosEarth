@@ -261,39 +261,63 @@
       </div>
     </div>
     <div class="slide" id="4">
-      <div class="content fourth-content">
-        <div class="container-fluid">
-          <form id="contact" action="" method="post">
-            <div class="row">
-              <div class="col-md-12">
-                <h2>Still have questions?<br>Leave us a message.</h2>
-              </div>
-              <div class="col-md-6">
-                <fieldset>
-                  <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                </fieldset>
-              </div>
-              <div class="col-md-6">
-                <fieldset>
-                  <input name="email" type="text" class="form-control" id="email" placeholder="Your email..."
-                    required="">
-                </fieldset>
-              </div>
-              <div class="col-md-12">
-                <fieldset>
-                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..."
-                    required=""></textarea>
-                </fieldset>
-              </div>
-              <div class="col-md-12">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="button">Send Now</button>
-                </fieldset>
-              </div>
-          </form>
+            <div class="content fourth-content">
+                <div class="container-fluid">
+                    <form id="contact" action="/contactSend" method="post">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h2>Still have questions?<br>Leave us a message.</h2>
+                          </div>
+                          <div class="col-md-6">
+                            <fieldset>
+                              <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-6">
+                            <fieldset>
+                              <input name="email" type="text" class="form-control" id="email" placeholder="Your email..." required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required=""></input>
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <table class="table">
+                              <tr>
+                                <th class="text-white"> Attachment </th>
+                                <th class="text-white"> Action </th>
+                              </tr>
+                              <tr>
+                                <td class="text-white"> thefile.txt </td>
+                                <td> <a class="btn btn-danger" onclick="tester()">Delete</a> </td>
+                              </tr>
+                              </table>
+                            </fieldset>
+                          <div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <button type="button" class="btn btn-secondary" onclick = "openFIleInput()">Add Attachment</button>
+                              <input type="file" id= "fileOpener" style = "display:none">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <button type="submit" id="form-submit" class="button">Send Now</button>
+                            </fieldset>
+                          </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
   </div>
 
 
