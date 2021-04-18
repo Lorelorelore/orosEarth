@@ -589,7 +589,7 @@ nav a::before {
 
 /* Slide 4 Style */
 .fourth-content {
-	top: 140%!important;
+	top: 130%!important;
   height: 100%;
 	transform: translateY(-140%);
 }
