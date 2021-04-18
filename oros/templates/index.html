@@ -15,11 +15,11 @@
   <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="static/css/fontawesome.css">
-    <link rel="stylesheet" href="static/css/tooplate-main.css">
-    <link rel="stylesheet" href="static/css/owl.css">
-    <link rel="stylesheet" href="static/uploads/gallery.css">
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="static/css/fontawesome.css">
+  <link rel="stylesheet" href="static/css/tooplate-main.css">
+  <link rel="stylesheet" href="static/css/owl.css">
+  <link rel="stylesheet" href="static/uploads/gallery.css">
 
 </head>
 
@@ -106,11 +106,20 @@
               <span>Consultancy, Planning, Designing,
                 Engineering, and Construction</span>
               <p>
-                We do Outside Plant Facility, Structured Cabling Infrastructure, In-Building Solutions,
-                Manhole and Conduits Network, Fiber to home Technology, Fiber Backbone Architecture, Local
-                Area Network
-                System, Wide Area Network System, CATV Cabling Infrastructure.</p>
-
+                <span>We do</span>
+              <ul>
+                <li style="color: #7a7a7a; margin-bottom:0px; display:list-item;"> Outside Plant Facility</li>
+                <li style="color: #7a7a7a; margin-bottom:0px; display:list-item;"> Structured Cabling Infrastructure
+                </li>
+                <li style="color: #7a7a7a; margin-bottom:0px; display:list-item;"> In-Building Solutions</li>
+                <li style="color: #7a7a7a; margin-bottom:0px; display:list-item;"> Manhole and Conduits Network</li>
+                <li style="color: #7a7a7a; margin-bottom:0px; display:list-item;"> Fiber to home Technology</li>
+                <li style="color: #7a7a7a; margin-bottom:0px; display:list-item;"> Fiber Backbone Architecture</li>
+                <li style="color: #7a7a7a; margin-bottom:0px; display:list-item;"> LocalArea Network System</li>
+                <li style="color: #7a7a7a; margin-bottom:0px; display:list-item;"> Wide Area Network System</li>
+                <li style="color: #7a7a7a; margin-bottom:0px; display:list-item;"> CATV Cabling Infrastructure.</li>
+              </ul>
+              </p>
             </article>
             <article id='tabs-3'>
               <h2>Who We Are?</h2>
@@ -226,44 +235,47 @@
             </div>
           </div>
         </div>
-      </div>                                          
+      </div>
     </div>
 
     <div class="slide" id="4">
       <div class="content fourth-content">
         <div class="container-fluid">
-            <form id="contact" action="/contactSend" method="post">
-                <div class="row">
-                  <div class="col-md-12">
-                    <h2>Still have questions?<br>Leave us a message.</h2>
-                  </div>
-                  <div class="col-md-6">
-                    <fieldset>
-                      <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                    </fieldset>
-                  </div>
-                  <div class="col-md-6">
-                    <fieldset>
-                      <input name="email" type="text" class="form-control" id="email" placeholder="Your email..." required="">
-                    </fieldset>
-                  </div>
-                  <div class="col-md-12">
-                    <fieldset>
-                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required=""></input>
-                    </fieldset>
-                  </div>
-                  <div class="col-md-12">
-                    <fieldset>
-                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                    </fieldset>
-                  </div>
-                  <div class="col-md-12">
-                    <fieldset>
-                      <button type="submit" id="form-submit" class="button">Send Now</button>
-                    </fieldset>
-                  </div>
-                </div>
-            </form>
+          <form id="contact" action="/contactSend" method="post">
+            <div class="row">
+              <div class="col-md-12">
+                <h2>Still have questions?<br>Leave us a message.</h2>
+              </div>
+              <div class="col-md-6">
+                <fieldset>
+                  <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                </fieldset>
+              </div>
+              <div class="col-md-6">
+                <fieldset>
+                  <input name="email" type="text" class="form-control" id="email" placeholder="Your email..."
+                    required="">
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject"
+                    required=""></input>
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..."
+                    required=""></textarea>
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="button">Send Now</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -283,58 +295,59 @@
   <script type="text/javascript">
     $(document).ready(function () {
 
-      attachments = []; 
+      attachments = [];
 
-          // navigation click actions 
-          $('.scroll-link').on('click', function(event){
-              event.preventDefault();
-              var sectionID = $(this).attr("data-id");
-              scrollToID('#' + sectionID, 750);
-          });
-          // scroll to top action
-          $('.scroll-top').on('click', function(event) {
-              event.preventDefault();
-              $('html, body').animate({scrollTop:0}, 'slow');         
-          });
-          // mobile nav toggle
-          $('#nav-toggle').on('click', function (event) {
-              event.preventDefault();
-              $('#main-nav').toggleClass("open");
-          });
-        });
-        // scroll function
-        function scrollToID(id, speed){
-            var offSet = 0;
-            var targetOffset = $(id).offset().top - offSet;
-            var mainNav = $('#main-nav');
-            $('html,body').animate({scrollTop:targetOffset}, speed);
-            if (mainNav.hasClass("open")) {
-                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
-                mainNav.removeClass("open");
-            }
-        }
-        if (typeof console === "undefined") {
-            console = {
-                log: function() { }
-            };
-        }
-
-        function addAttachment(filename){
-          
-        }
-
-        $("#contact").submit(function(e) {
-          e.preventDefault(); // avoid to execute the actual submit of the form.
-
-          var form = $(this);
-          var url = form.attr('action');
-
-          console.log("Submit");
-        });
-
-      function openFIleInput(){
-        document.getElementById('fileOpener').click();
+      // navigation click actions 
+      $('.scroll-link').on('click', function (event) {
+        event.preventDefault();
+        var sectionID = $(this).attr("data-id");
+        scrollToID('#' + sectionID, 750);
+      });
+      // scroll to top action
+      $('.scroll-top').on('click', function (event) {
+        event.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+      });
+      // mobile nav toggle
+      $('#nav-toggle').on('click', function (event) {
+        event.preventDefault();
+        $('#main-nav').toggleClass("open");
+      });
+    });
+    // scroll function
+    function scrollToID(id, speed) {
+      var offSet = 0;
+      var targetOffset = $(id).offset().top - offSet;
+      var mainNav = $('#main-nav');
+      $('html,body').animate({ scrollTop: targetOffset }, speed);
+      if (mainNav.hasClass("open")) {
+        mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+        mainNav.removeClass("open");
       }
+    }
+    if (typeof console === "undefined") {
+      console = {
+        log: function () { }
+      };
+    }
+
+    function addAttachment(filename) {
+
+    }
+
+    $("#contact").submit(function (e) {
+      e.preventDefault(); // avoid to execute the actual submit of the form.
+
+      var form = $(this);
+      var url = form.attr('action');
+
+      console.log("Submit");
+    });
+
+    function openFIleInput() {
+      document.getElementById('fileOpener').click();
+    }
   </script>
 </body>
+
 </html>
