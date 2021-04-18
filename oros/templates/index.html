@@ -223,7 +223,7 @@
         <div class="slide" id="4">
             <div class="content fourth-content">
                 <div class="container-fluid">
-                    <form id="contact" action="" method="post">
+                    <form id="contact" action="/contactSend" method="post">
                         <div class="row">
                           <div class="col-md-12">
                             <h2>Still have questions?<br>Leave us a message.</h2>
@@ -240,13 +240,39 @@
                           </div>
                           <div class="col-md-12">
                             <fieldset>
+                              <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required=""></input>
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
                               <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <table class="table">
+                              <tr>
+                                <th class="text-white"> Attachment </th>
+                                <th class="text-white"> Action </th>
+                              </tr>
+                              <tr>
+                                <td class="text-white"> thefile.txt </td>
+                                <td> <a class="btn btn-danger" onclick="tester()">Delete</a> </td>
+                              </tr>
+                              </table>
+                            </fieldset>
+                          <div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <button type="button" class="btn btn-secondary" onclick = "openFIleInput()">Add Attachment</button>
+                              <input type="file" id= "fileOpener" style = "display:none">
                             </fieldset>
                           </div>
                           <div class="col-md-12">
                             <fieldset>
                               <button type="submit" id="form-submit" class="button">Send Now</button>
                             </fieldset>
+                          </div>
                         </div>
                     </form>
                 </div>
@@ -267,6 +293,8 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+
+            attachments = []; 
 
             // navigation click actions 
             $('.scroll-link').on('click', function(event){
@@ -301,6 +329,24 @@
                 log: function() { }
             };
         }
+
+        function addAttachment(filename){
+          
+        }
+
+        $("#contact").submit(function(e) {
+          e.preventDefault(); // avoid to execute the actual submit of the form.
+
+          var form = $(this);
+          var url = form.attr('action');
+
+          console.log("Submit");
+        });
+
+      function openFIleInput(){
+        document.getElementById('fileOpener').click();
+      }
+
     </script>
 
   </body>
