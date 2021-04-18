@@ -301,15 +301,16 @@ nav a::before {
 
 }
 .slides .slide:nth-child(2) {
-  background-image: url(../images/about-bg.jpg);
+  background-image: url('/static/images/about-bg.jpg');
   background-position: fixed;
 }
 .slides .slide:nth-child(3) {
-  background-image: url(../images/gallery-bg.jpg);
+  background-image: url(  '/static/images/gallery-bg.jpg');
   background-position: fixed;
 }
 .slides .slide:nth-child(4) {
-  background-image: url(../images/contact-bg.jpg);
+  background-image: url(  '/static/images/contact-bg.jpg');
+
   background-position: fixed;
 }
 

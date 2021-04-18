@@ -250,8 +250,29 @@
                           </div>
                           <div class="col-md-12">
                             <fieldset>
+                              <table class="table">
+                              <tr>
+                                <th class="text-white"> Attachment </th>
+                                <th class="text-white"> Action </th>
+                              </tr>
+                              <tr>
+                                <td class="text-white"> thefile.txt </td>
+                                <td> <a class="btn btn-danger" onclick="tester()">Delete</a> </td>
+                              </tr>
+                              </table>
+                            </fieldset>
+                          <div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <button type="button" class="btn btn-secondary" onclick = "openFIleInput()">Add Attachment</button>
+                              <input type="file" id= "fileOpener" style = "display:none">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
                               <button type="submit" id="form-submit" class="button">Send Now</button>
                             </fieldset>
+                          </div>
                         </div>
                     </form>
                 </div>
@@ -319,8 +340,13 @@
           var form = $(this);
           var url = form.attr('action');
 
-          console.log("Pass");
+          console.log("Submit");
         });
+
+      function openFIleInput(){
+        document.getElementById('fileOpener').click();
+      }
+
     </script>
 
   </body>
